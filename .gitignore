@@ -1,0 +1,23 @@
+# Environment secrets; keep the example template trackable.
+.env
+.env.*
+**/.env
+**/.env.*
+!.env.example
+!**/.env.example
+
+# Local database backups.
+backend/db_setup/qistwalay_eligibility_backup.db
+
+# Regenerable scraped and processed website data.
+backend/data_pipeline/qistwalay_data/*
+!backend/data_pipeline/qistwalay_data/.gitkeep
+
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+qistwalay_scratch/

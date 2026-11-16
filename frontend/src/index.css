@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap");
+
+:root {
+  --tile-deep: #0e4a57;   /* peacock tile blue */
+  --tile-mid: #1f7a8c;
+  --tile-soft: #9cc7cf;
+  --tile-mist: #eaf2f3;
+  --marigold: #e9a23b;
+  --paper: #fafbfa;
+  --ink: #12262b;
+  --muted: #5b6f74;
+  --line: #cfe0e3;
+  --alert: #a63a24;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  /* Schibsted Grotesk for English / Roman Urdu; the browser falls back to Noto Nastaliq for Urdu script */
+  font-family: "Schibsted Grotesk", "Noto Nastaliq Urdu", system-ui, sans-serif;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}

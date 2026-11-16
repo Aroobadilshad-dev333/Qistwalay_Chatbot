@@ -1,0 +1,14 @@
+.env
+rag/.env
+.env.*
+**/.env
+**/.env.*
+__pycache__
+**/__pycache__
+*.pyc
+*.pyo
+tests
+db_setup
+data_pipeline
+scrapped_output
+.git

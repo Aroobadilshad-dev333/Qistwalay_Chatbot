@@ -1,0 +1,12 @@
+node_modules
+dist
+.env
+.env.*
+**/.env
+**/.env.*
+tests
+**/tests
+__pycache__
+**/__pycache__
+*.pyc
+.git
