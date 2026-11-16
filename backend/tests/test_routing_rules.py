@@ -134,6 +134,18 @@ class RoutingRulesTests(unittest.TestCase):
         self.assertEqual(route, "rag")
         create.assert_called_once()
 
+    def test_category_price_and_tenure_questions_route_to_rag_without_model_call(self):
+        questions = [
+            "What is the price range of Air Conditioners?",
+            "What is the maximum tenure for a Refrigerator?",
+        ]
+        for question in questions:
+            with self.subTest(question=question), patch.object(
+                router.client.chat.completions, "create"
+            ) as create:
+                self.assertEqual(router.classify_question(question), "rag")
+                create.assert_not_called()
+
     def test_applicant_id_lookup_routes_to_sql_without_model_call(self):
         with patch.object(router.client.chat.completions, "create") as create:
             route = router.classify_question(

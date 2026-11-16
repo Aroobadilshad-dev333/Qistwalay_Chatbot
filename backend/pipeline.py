@@ -454,8 +454,8 @@ def _get_rag_context(question):
 
 SPLIT_SYSTEM_PROMPT = """You split one mixed question into two standalone English questions.
 ## INSTRUCTIONS ##
-- sql_part: ONLY the part asking for facts recorded in a particular sample applicant's row (identity, income, banking, credit history, bankruptcy flag, risk tier, recorded decision/reason, approved plan), sample-applicant counts/lists, or a category's price range / maximum tenure. Do not turn a hypothetical person's situation into a sample applicant query.
-- rag_part: ONLY the part asking about Qistwalay website products, specifications, warranty, policies, refund, FAQs, documents, requirements or general eligibility rules. Remove the sample-record topic from it completely.
+- sql_part: ONLY the part asking for facts recorded in a particular sample applicant's row (identity, income, banking, credit history, bankruptcy flag, risk tier, recorded decision/reason, approved plan) or sample-applicant counts/lists. Do not turn a hypothetical person's situation into a sample applicant query.
+- rag_part: ONLY the part asking about Qistwalay website products, category prices or maximum tenures, specifications, warranty, policies, refund, FAQs, documents, requirements or general eligibility rules. Remove the sample-record topic from it completely.
 - Each part must be a complete standalone question that makes sense without the other part.
 - Keep rag_part short and general. Do NOT add words such as "for those applicants" or "for rejected applicants" to it.
 - Only if rag_part is about documents or requirements, add that it is about applying for an installment plan at Qistwalay. For every other topic (refund, warranty, products), do not add extra context.
@@ -465,7 +465,7 @@ SPLIT_SYSTEM_PROMPT = """You split one mixed question into two standalone Englis
 - Return ONLY a JSON object, with no extra text: {"sql_part": "...", "rag_part": "..."}
 ## EXAMPLES ##
 Question: What is the maximum tenure for a Refrigerator, and what documents are required?
-Output: {"sql_part": "What is the maximum tenure for a Refrigerator?", "rag_part": "What documents are required to apply for an installment plan at Qistwalay?"}
+Output: {"sql_part": "", "rag_part": "What is the maximum installment tenure for a Refrigerator, and what documents are required to apply for an installment plan at Qistwalay?"}
 Question: How many applicants were rejected, and what is the refund policy for those applicants?
 Output: {"sql_part": "How many applicants were rejected?", "rag_part": "What is the refund policy?"}
 Question: What is the recorded status of applicant APP-2026-1003, and does Qistwalay publish a rule that people with bankruptcy can never get installments?

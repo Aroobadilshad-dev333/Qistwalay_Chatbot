@@ -43,25 +43,25 @@ SCENARIOS = [
         "name": "3. Follow-up that needs chat history (English)",
         "turns": [
             {"q": "What is the maximum tenure for an Air Conditioner?",
-             "routes": {"sql"}, "any": ["12"], "lang": "english"},
+             "routes": {"rag"}, "any": ["12"], "lang": "english"},
             {"q": "And for a Refrigerator?",
-             "routes": {"sql"}, "any": ["10"], "lang": "english"},
+             "routes": {"rag"}, "any": ["10"], "lang": "english"},
         ],
     },
     {
         "name": "4. Follow-up that needs rephrasing (Roman Urdu)",
         "turns": [
             {"q": "What is the maximum tenure for an Air Conditioner?",
-             "routes": {"sql"}, "any": ["12"], "lang": "english"},
+             "routes": {"rag"}, "any": ["12"], "lang": "english"},
             {"q": "aur Refrigerator ka?",
-             "routes": {"sql"}, "any": ["10"], "lang": "roman_urdu"},
+             "routes": {"rag"}, "any": ["10"], "lang": "roman_urdu"},
         ],
     },
     {
-        "name": "5a. SQL vs RAG confusion: category-level price range (should be SQL)",
+        "name": "5a. Product category price range (should be RAG)",
         "turns": [
             {"q": "What is the price range of Air Conditioners?",
-             "routes": {"sql"}, "any": ["114"], "lang": "english"},
+             "routes": {"rag"}, "any": ["Rs.", "PKR"], "lang": "english"},
         ],
     },
     {

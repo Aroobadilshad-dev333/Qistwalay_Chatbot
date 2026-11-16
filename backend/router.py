@@ -14,7 +14,7 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 ROUTER_SYSTEM_PROMPT = """You are a routing classifier for a Qistwalay customer support system. You must NOT answer the question — only classify it.
 
 ## DATA SOURCES ##
-SQL database (SQLite) — SAMPLE applicant data from the supplied CSV, not live customer records. It contains applicant identity/contact details, income, employment, banking, debt, payment history, bankruptcy flags, risk tiers, recorded decisions, requested products, and approved plans. It also contains category-level price ranges and maximum tenures.
+SQL database (SQLite) — SAMPLE applicant data from the supplied CSV, not live customer records. It contains applicant identity/contact details, income, employment, banking, debt, payment history, bankruptcy flags, risk tiers, recorded decisions, requested products, and approved plans.
 
 RAG — product, policy, FAQ, and installment-process information collected from Qistwalay's website.
 
@@ -79,7 +79,7 @@ _ABOUT_QISTWALAY = re.compile(
 
 
 def _quick_route(question: str) -> str | None:
-    """Keep general policy questions out of the synthetic applicant database."""
+    """Route sample-data and catalog questions before model classification."""
     if (
         is_rejected_sample_list_question(question)
         or is_sample_rejection_basis_question(question)
@@ -104,7 +104,7 @@ def _quick_route(question: str) -> str | None:
         question,
         re.IGNORECASE,
     ):
-        return "sql"
+        return "rag"
 
     if (
         re.search(r"\b(?:how\s+many|count|list|show|which|who)\b", question, re.IGNORECASE)

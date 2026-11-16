@@ -93,7 +93,6 @@ qistwalay-app/
 │   ├── vite.config.js                 # Development API proxy
 │   ├── nginx.conf                     # Production API reverse proxy
 │   └── Dockerfile
-├── docs/                              # Business reference document(s)
 ├── docker-compose.yml
 └── README.md
 ```
@@ -261,7 +260,6 @@ npm run build
 - Applicant rows are synthetic sample records, not real customers. Their stored outcomes do not determine a real person’s eligibility or represent official Qistwalay policy.
 - The dataset’s previous-plan/default fields are not a ledger of actual installment transactions.
 - Prices, availability, plans, and policies come from a scraped snapshot and can become outdated. Confirm current details with Qistwalay.
-- `docs/` contains project reference material; it is not automatically loaded as authoritative runtime eligibility policy.
 - Live model and embedding calls require a valid key and can incur API usage charges.
 
 ## Credits
